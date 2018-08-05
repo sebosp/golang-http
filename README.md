@@ -14,3 +14,6 @@ If you need to run the container locally you can use it like this:
 $ docker run -d -e PLAYER_NAME="seb" -e ENV_NAME=dev -e COLOR="red" -p 8080:8080 golang-http:0.0.1
 ```
 
+# TODO
+- Code coverage
+- Testing Preview/Staging html response.
