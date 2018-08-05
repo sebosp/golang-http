@@ -23,6 +23,7 @@ pipeline {
             checkout scm
             container('go') {
               sh "make linux"
+              sh "go test"
               sh 'export VERSION=$PREVIEW_VERSION && skaffold build -f skaffold.yaml'
 
 

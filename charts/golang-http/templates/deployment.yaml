@@ -21,6 +21,22 @@ spec:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
+        env:
+        - name: PLAYER_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: tf-cfg
+              key: PLAYER_NAME
+        - name: ENV_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: tf-cfg
+              key: ENV_NAME
+        - name: COLOR
+          valueFrom:
+            configMapKeyRef:
+              name: tf-cfg
+              key: COLOR
         ports:
         - containerPort: {{ .Values.service.internalPort }}
         livenessProbe:
